@@ -3,7 +3,7 @@ Algoritmit ja Tekoäly harjoitustyön määrittelydokumentti, jonka teen osana T
 
 ## Aihe
 Aiheena on signaalin voimakkaimman taajuuden tunnistaminen käyttäen nopeaa fourier-muunnosta.
-Ohjelma ottaa jonkin äänitiedoston ja tulostaa korkeimman taajuuden. Voi aluksi toimia ihan komentoriviltä.
+Ohjelma ottaa jonkin äänitiedoston ja tulostaa voimakkaimman taajuuden. Voi aluksi toimia ihan komentoriviltä.
 
 Nopean Fourier-muunnoksen aikavaatimus on wikipedian mukaan O(n log n)
 ## Työn kielet
