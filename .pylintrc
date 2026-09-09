@@ -1,0 +1,31 @@
+[MASTER]
+
+ignore-paths=src/tests
+ignore=?.py
+
+[MESSAGE CONTROL]
+
+disable=raw-checker-failed,
+        bad-inline-option,
+        locally-disabled,
+        file-ignored,
+        suppressed-message,
+        useless-suppression,
+        deprecated-pragma,
+        use-symbolic-message-instead,
+        missing-module-docstring,
+        missing-function-docstring,
+        missing-class-docstring,
+        broad-exception-caught,
+        too-few-public-methods,
+        too-many-arguments,
+        too-many-positional-arguments
+
+[FORMAT]
+
+max-line-length=120
+indent-string="    "
+
+[REFACTORING]
+
+max-nested-blocks=3
