@@ -2,7 +2,7 @@
 Algoritmit ja Tekoäly harjoitustyön määrittelydokumentti, jonka teen osana Tietojenkässittelytieteen kandiohjelmaa.
 
 ## Aihe
-Aiheena on signaalin voimakkaimman taajuuden tunnistaminen käyttäen nopeaa fourier-muunnosta.
+Aiheena on signaalin voimakkaimman taajuuden tunnistaminen käyttäen Cooley-Turkey nopeaa fourier-muunnosta.
 Ohjelma ottaa jonkin äänitiedoston ja tulostaa voimakkaimman taajuuden. Voi aluksi toimia ihan komentoriviltä.
 
 Nopean Fourier-muunnoksen aikavaatimus on wikipedian mukaan O(n log n)
