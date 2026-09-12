@@ -14,3 +14,4 @@ Projektin dokumentaatio ja koodin sisäiset kommentit tulevat olemaan suomeksi.
 Harjoitustyön alustavana lähteenä toimii
 
 [Fast Fourier-transform (Wikipedia)](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
+[Brian McFee - DST Book](https://brianmcfee.net/dstbook-site/content/intro.html)
