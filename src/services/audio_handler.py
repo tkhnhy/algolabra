@@ -6,4 +6,10 @@ class AudioHandler:
         
     def readfile(self):
         data, sample_rate = soundfile.read(self.audio_source)
-        return (data, sample_rate)
+
+        if data.ndim == 2:
+            mono_data = np.mean(data, axis=1)
+        else:
+            mono_data = data
+
+        return (mono_data, sample_rate)
