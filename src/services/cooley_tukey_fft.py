@@ -1,14 +1,14 @@
-import numpy, math, cmath
+import math
+import cmath
+import numpy
 
 class Fourier:
     def __init__(self, audio_data):
-        self.sample_rate = audio_data[1]
-
-        if len(audio_data[0]) % 2 != 0:
-            self.data = audio_data[0]
+        if len(audio_data) % 2 != 0:
+            self.data = audio_data
             self.data = numpy.append(self.data, 0)
         else:
-            self.data = audio_data[0]
+            self.data = audio_data
 
     def rad2ct(self, data):
         n = len(data)
@@ -27,12 +27,13 @@ class Fourier:
         y = numpy.zeros(n, dtype=complex)
 
         for i in range(n//2):
-            y[i] = y0[i] + (w * y1[i])
-            y[i + (n//2)] = y0[i] - (w * y1[i])
+            y[i] = y0[i] + (wn * y1[i])
+            y[i + (n//2)] = y0[i] - (wn * y1[i])
 
             wn *= w
 
         return y
 
     def do_fft(self):
-        return self.rad2ct(self.data)
+        fft_data = self.rad2ct(self.data)
+        return fft_data
