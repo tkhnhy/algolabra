@@ -12,5 +12,8 @@ def main():
 
     interface.print_frequency(frequency)
     
+    inverted = finder.inversefft(frequency)
+
+
 if __name__ == "__main__":
     main()

@@ -3,9 +3,12 @@ import soundfile, numpy
 class AudioHandler:
     def __init__(self, audio_source):
         self.audio_source = audio_source
+        self.sample_rate = 0
         
     def readfile(self):
         data, sample_rate = soundfile.read(self.audio_source)
+
+        self.sample_rate = sample_rate
 
         if data.ndim == 2:
             mono_data = np.mean(data, axis=1)
@@ -13,3 +16,6 @@ class AudioHandler:
             mono_data = data
 
         return (mono_data, sample_rate)
+
+    def writefile(self, data):
+        soundfile.write(f"isolated_{self.audio_source}", data, self.sample_rate)

@@ -11,3 +11,6 @@ class FrequencyFinder:
         transformed = fft.do_fft()
 
         return transformed
+
+    def inversefft(self, data):
+        return fft.do_inverse(data)
