@@ -5,6 +5,8 @@ class AudioHandler:
     def __init__(self, audio_source):
         self.audio_source = audio_source
         self.original_length = 0
+        self.sample_rate = 0
+
     def readfile(self):
         data, sample_rate = soundfile.read(self.audio_source)
 

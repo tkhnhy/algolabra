@@ -6,7 +6,7 @@ class Cli:
         #tässä esim. example_audio\sine_440Hz.wav
         audio_source = input()
         if audio_source == "":
-            return "example_audio\sine_440Hz.wav"
+            return r"example_audio\sine_440Hz.wav"
         return audio_source
 
     def print_frequency(self, frequency):
@@ -16,5 +16,5 @@ class Cli:
         plot_audio(original_data, sample_rate)
         plot_fft(new_data, sample_rate)
 
-    def print_written():
+    def print_written(self):
         print("Eristetty äänitiedosto luotu output_audio kansioon")
