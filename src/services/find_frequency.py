@@ -1,6 +1,6 @@
 from services.audio_handler import AudioHandler
 
-from services.cooley_tukey_fft import Fourier
+from services.cooley_tukey_fft import Fourier, do_inverse
 
 class FrequencyFinder:
     def find_frequency(self, audio_source):
@@ -13,4 +13,4 @@ class FrequencyFinder:
         return transformed
 
     def inversefft(self, data):
-        return fft.do_inverse(data)
+        return do_inverse(data)
