@@ -4,11 +4,10 @@ import numpy
 
 class Fourier:
     def __init__(self, audio_data):
-        if len(audio_data) % 2 != 0:
-            self.data = audio_data
-            self.data = numpy.append(self.data, 0)
-        else:
-            self.data = audio_data
+        n = len(audio_data)
+        next_power_2 = 1 << (n - 1).bit_length()
+
+        self.data = numpy.pad(audio_data,(0, next_power_2 - n))
 
     def rad2ct(self, data):
         n = len(data)
@@ -27,15 +26,14 @@ class Fourier:
         y = numpy.zeros(n, dtype=complex)
 
         for i in range(n//2):
-            y[i] = y0[i] + (wn * y1[i])
-            y[i + (n//2)] = y0[i] - (wn * y1[i])
+            y[i] = y0[i] + (w * y1[i])
+            y[i + (n//2)] = y0[i] - (w * y1[i])
 
             w *= wn
 
         return y
 
     def do_fft(self):
-<<<<<<< HEAD
         return self.rad2ct(self.data)
 
 def inverserad2ct(data):
@@ -65,7 +63,3 @@ def inverserad2ct(data):
 def do_inverse(data):
     n = len(data)
     return (1/ n) * inverserad2ct(data)
-=======
-        fft_data = self.rad2ct(self.data)
-        return fft_data
->>>>>>> main

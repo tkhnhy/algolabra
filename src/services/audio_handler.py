@@ -4,12 +4,7 @@ import numpy
 class AudioHandler:
     def __init__(self, audio_source):
         self.audio_source = audio_source
-<<<<<<< HEAD
-        self.sample_rate = 0
-        
-=======
-
->>>>>>> main
+        self.original_length = 0
     def readfile(self):
         data, sample_rate = soundfile.read(self.audio_source)
 
@@ -20,7 +15,9 @@ class AudioHandler:
         else:
             mono_data = data
 
+        self.original_length = len(mono_data)
         return (mono_data, sample_rate)
 
     def writefile(self, data):
-        soundfile.write(f"isolated_{self.audio_source}", data, self.sample_rate)
+        soundfile.write("output_audio/output.wav",
+        data[:self.original_length], self.sample_rate)

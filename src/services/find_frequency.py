@@ -5,10 +5,11 @@ from services.cooley_tukey_fft import Fourier, do_inverse
 import numpy
 
 class FrequencyFinder:
-    def find_frequency(self, audio_source):
-        audio_handler = AudioHandler(audio_source)
-
-        audio_data, sample_rate = audio_handler.readfile()
+    def __init__(self, audio_source):
+        self.audio_handler = AudioHandler(audio_source)
+    def find_frequency(self):
+        
+        audio_data, sample_rate = self.audio_handler.readfile()
 
         original_data = audio_data.copy()
 
@@ -19,12 +20,9 @@ class FrequencyFinder:
         peak_index = numpy.argmax(magnitude)
         peak_frequency = peak_index * sample_rate / len(transformed)
 
-<<<<<<< HEAD
-        return transformed
-
-    def inversefft(self, data):
-        return do_inverse(data)
-=======
        
         return original_data, transformed, sample_rate, peak_frequency
->>>>>>> main
+
+    def invert_and_write(self, data):
+        to_write = numpy.real(do_inverse(data))
+        self.audio_handler.writefile(to_write)
