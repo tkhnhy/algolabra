@@ -16,3 +16,5 @@ Harjoitustyön alustavana lähteenä toimii
 [Fast Fourier-transform (Wikipedia)](https://en.wikipedia.org/wiki/Fast_Fourier_transform)
 <br>
 [Brian McFee - DST Book](https://brianmcfee.net/dstbook-site/content/intro.html)
+<br>
+[Algoritmi kirja](https://bobson.ludost.net/books/algo/book6/chap32.htm)
