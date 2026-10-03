@@ -16,6 +16,8 @@ class FrequencyFinder:
         fft = Fourier(audio_data)
         transformed = fft.do_fft()
 
+
+        # Lasketaan fft:n tuottamien kompleksilukujen voimakkuudet ja haetaan niistä voimakkaimman taajuus
         magnitude = numpy.abs(transformed)
         peak_index = numpy.argmax(magnitude)
         peak_frequency = peak_index * sample_rate / len(transformed)

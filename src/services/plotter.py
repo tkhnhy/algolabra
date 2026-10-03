@@ -2,7 +2,7 @@ from matplotlib import pyplot
 import numpy
 
 def plot_audio(data, sample_rate):
-
+    # Audion aikamuodon kaavio
     time = numpy.arange(len(data)) / sample_rate
 
     pyplot.figure(figsize=(14, 6))
@@ -16,6 +16,7 @@ def plot_audio(data, sample_rate):
     pyplot.show()
 
 def plot_fft(data, sample_rate):
+    # Audion taajusmuodon kaavio
     n = len(data)
 
     magnitude = numpy.abs(data)

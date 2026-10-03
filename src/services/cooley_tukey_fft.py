@@ -5,11 +5,13 @@ import numpy
 class Fourier:
     def __init__(self, audio_data):
         n = len(audio_data)
+        # Data täytetään nollilla seuraavaan kahden potenssiin algoritmia varten
         next_power_2 = 1 << (n - 1).bit_length()
 
         self.data = numpy.pad(audio_data,(0, next_power_2 - n))
 
     def rad2ct(self, data):
+        # Rekursiivinen radix-2 Cooley-Tukey algoritmi. Ottaa syötteenä 2^n kokoisen joukon
         n = len(data)
         if n == 1:
             return data
@@ -37,6 +39,7 @@ class Fourier:
         return self.rad2ct(self.data)
 
 def inverserad2ct(data):
+    # Käänteinen radix-2 Cooley-Tukey algoritmi muuttaakseen data takaisin aika-domainiin.
     n = len(data)
     if n == 1:
         return data

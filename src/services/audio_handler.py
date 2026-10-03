@@ -12,6 +12,7 @@ class AudioHandler:
 
         self.sample_rate = sample_rate
 
+        # Audiodata muunnetaan mono-muotoon, jotta se olisi yksinkertaisempi käsitellä
         if data.ndim == 2:
             mono_data = numpy.mean(data, axis=1)
         else:
