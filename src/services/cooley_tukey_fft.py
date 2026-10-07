@@ -64,5 +64,6 @@ def inverserad2ct(data):
     return y
 
 def do_inverse(data):
+    # Käänteisen fft:n kaavan mukaisesti joukon osat kerrotaan 1/n (Helpompi tässä kun yrittää edelliseen algoritmiin laittaa)
     n = len(data)
     return (1/ n) * inverserad2ct(data)
