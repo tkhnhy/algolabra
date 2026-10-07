@@ -10,7 +10,8 @@ requires-python = ">=3.14"
 dependencies = [
     "pylint (>=4.0.8,<5.0.0)",
     "soundfile (>=0.14.0,<0.15.0)",
-    "matplotlib (>=3.11.2,<4.0.0)"
+    "matplotlib (>=3.11.2,<4.0.0)",
+    "pyqt6 (>=6.11.0,<7.0.0)"
 ]
 
 

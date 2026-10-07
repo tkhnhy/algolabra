@@ -1,5 +1,9 @@
-from matplotlib import pyplot
+import matplotlib
+matplotlib.use("QtAgg")
+
+import matplotlib.pyplot as pyplot
 import numpy
+
 
 def plot_audio(data, sample_rate):
     # Audion aikamuodon kaavio
