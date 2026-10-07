@@ -8,7 +8,11 @@ class AudioHandler:
         self.sample_rate = 0
 
     def readfile(self):
-        data, sample_rate = soundfile.read(self.audio_source)
+        try:
+            data, sample_rate = soundfile.read(self.audio_source)
+        except:
+            print("Tiedostoa ei voitu lukea")
+            return (False, False)
 
         self.sample_rate = sample_rate
 

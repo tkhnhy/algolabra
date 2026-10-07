@@ -14,6 +14,9 @@ class FrequencyFinder:
 
         audio_data, sample_rate = self.audio_handler.readfile()
 
+        if not audio_data:
+            return False
+
         original_data = audio_data.copy()
 
         fft = Fourier(audio_data)
