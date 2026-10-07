@@ -13,6 +13,17 @@ class TestFourier(unittest.TestCase):
 
         numpy.testing.assert_almost_equal(result, expected)
 
+    def test_fft_non_power_of_2(self):
+        data = numpy.array([1, 2, 3])
+        data_padded = numpy.array([1, 2, 3, 0])
+
+        fourier = Fourier(data)
+
+        expected = numpy.fft.fft(data_padded)
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)
+
     def test_do_inverse(self):
         data = numpy.array([10+0j, -2+2j, -2+0j, -2-2j])
 
@@ -21,6 +32,16 @@ class TestFourier(unittest.TestCase):
         result = do_inverse(data)
 
         numpy.testing.assert_almost_equal(result, expected)
+
+    def test_data_is_empty(self):
+        data = numpy.array([])
+
+        fourier = Fourier(data)
+        result = fourier.do_fft()
+
+        expected = numpy.array([])
+
+        numpy.testing.assert_array_equal(result, expected)
 
     def test_compare_to_numpy_on_real_data(self):
         data = numpy.load("testdata/sine_440Hz_padded_data.npy")

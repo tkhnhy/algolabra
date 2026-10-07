@@ -5,6 +5,10 @@ import numpy
 class Fourier:
     def __init__(self, audio_data):
         n = len(audio_data)
+
+        if n == 0:
+            self.data = numpy.array([])
+            return
         # Data täytetään nollilla seuraavaan kahden potenssiin algoritmia varten
         next_power_2 = 1 << (n - 1).bit_length()
 
@@ -38,7 +42,10 @@ class Fourier:
         return y
 
     def do_fft(self):
-        return self.rad2ct(self.data)
+        if len(self.data) == 0:
+            return numpy.array([])
+        else:
+            return self.rad2ct(self.data)
 
 def inverserad2ct(data):
     # Käänteinen radix-2 Cooley-Tukey algoritmi muuttaakseen data takaisin aika-domainiin.
