@@ -19,6 +19,7 @@ class AudioHandler:
             mono_data = data
 
         self.original_length = len(mono_data)
+
         return (mono_data, sample_rate)
 
     def writefile(self, data):

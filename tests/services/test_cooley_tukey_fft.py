@@ -21,3 +21,13 @@ class TestFourier(unittest.TestCase):
         result = do_inverse(data)
 
         numpy.testing.assert_almost_equal(result, expected)
+
+    def test_compare_to_numpy_on_real_data(self):
+        data = numpy.load("testdata/sine_440Hz_padded_data.npy")
+
+        expected = numpy.fft.fft(data)
+
+        fourier = Fourier(data)
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)

@@ -10,6 +10,8 @@ class Fourier:
 
         self.data = numpy.pad(audio_data,(0, next_power_2 - n))
 
+        # Kommentoimattomana tallentaa testausta varten padatun datan, jotta voi verrata ei padaaviin fft algoritmeihin
+        # numpy.save("testdata/audio_data.npy", self.data)
     def rad2ct(self, data):
         # Rekursiivinen radix-2 Cooley-Tukey algoritmi. Ottaa syötteenä 2^n kokoisen joukon
         n = len(data)
