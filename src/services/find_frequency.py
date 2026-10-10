@@ -22,6 +22,7 @@ class FrequencyFinder:
 
         # Lasketaan fft:n tuottamien kompleksilukujen voimakkuudet ja haetaan niistä voimakkaimman taajuus
         magnitude = numpy.abs(transformed)
+        # Vain ensimmäinen puoli etsitään. sillä DFT on symmetrinen keskeltä jos syöte koostuu vain reaaliluvuista (kuten audiodatassa)
         self.peak_index = numpy.argmax(magnitude[:len(transformed) // 2])
         self.peak_frequency = self.peak_index * sample_rate / len(transformed)
 

@@ -43,6 +43,16 @@ class TestFourier(unittest.TestCase):
 
         numpy.testing.assert_array_equal(result, expected)
 
+    def test_all_single_entry(self):
+        data = numpy.array([1])
+
+        fourier = Fourier(data)
+
+        expected = numpy.array([1])
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)
+
     def test_all_zeroes(self):
         data = numpy.array([0, 0, 0, 0])
 
@@ -62,9 +72,28 @@ class TestFourier(unittest.TestCase):
         result = fourier.do_fft()
 
         numpy.testing.assert_almost_equal(result, expected)
+        
+    def test_all_alternate_one_minusone(self):
+        data = numpy.array([1, -1, 1, -1])
+
+        fourier = Fourier(data)
+
+        expected = numpy.array([0, 0, 4, 0])
+        result = fourier.do_fft()
 
     def test_compare_to_numpy_on_real_data(self):
         data = numpy.load("testdata/sine_440Hz_padded_data.npy")
+
+        expected = numpy.fft.fft(data)
+
+        fourier = Fourier(data)
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)
+        
+    def test_compare_to_numpy_2_different_volume_sine(self):
+        # Sovellus ei aikaisemmin toiminut oikein tällä äänitiedostolla
+        data = numpy.load("testdata/C4loudA4quiet_padded_data.npy")
 
         expected = numpy.fft.fft(data)
 
