@@ -1,9 +1,23 @@
-Yksikkötestauksen kattavuusraportti.
-Mitä on testattu, miten tämä tehtiin?
-Minkälaisilla syötteillä testaus tehtiin?
-Miten testit voidaan toistaa?
-Ohjelman toiminnan mahdollisen empiirisen testauksen tulosten esittäminen graafisessa muodossa. (Mikäli sopii aiheeseen)
-Ei siis riitä todeta, että testaus on tehty käyttäen automaattisia yksikkötestejä, vaan tarvitaan konkreettista tietoa testeistä, kuten:
-Testattu, että tekoäly osaa tehdä oikeat siirrot tilanteessa, jossa on varma 4 siirron voitto. Todettu, että siirroille palautuu voittoarvo 100000.
-Testattu 10 kertaan satunnaisesti valituilla lähtö- ja maalipisteillä, että JPS löytää saman pituisen reitin kuin Dijkstran algoritmi.
-Kummallakin algoritmilla on pakattu 8 MB tekstitiedosto, purettu se ja tarkastettu, että tuloksena on täsmälleen alkuperäinen tiedosto.
+# Yksikkötestauksen kattavuusraportti.
+
+# Mitä testataan, millä syötteillä? 
+
+Testaus keskittyy (tällä hetkellä) vain itse fft algoritmiin.
+
+Algoritmia on testattu yksinkertaisilla perus syötteillä sekä syötteillä, jotka voivat usein johtaa ongelmatilanteisiin algoritmissa. Näitä ovat:
+
+- Tyhjä syöte
+- Syöte joka ei ole 2^n kokoinen
+- Syöte joka koostuu vain nollista
+- Syöte joka koostuu vain ykkösistä
+- Syöte joka koostu vaihtelevasti ykkösistä ja miinus ykkösistä
+
+Myös käänteisalgoritmia testataan yksinkertaisella syötteellä sekä testillä, jossa ensin suoritetaan FFT algoritmi ja tämän jälkeen käänteinen FFT algoritmi ja varmistetaan, että saatu tulos vastaa alkuperäistä dataa.
+
+# Miten testit voidaan toistaa?
+Käytä seuraavaa komentoa projektin juuressa:
+
+```bash
+poetry run pytest
+```
+
