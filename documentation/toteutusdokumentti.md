@@ -15,7 +15,7 @@ Suorituskykyä voisi vertailla vaikka numpyn omaan fft:hen
 Työn mahdolliset puutteet ja parannusehdotukset
 
 Laajojen kielimallien (ChatGPT yms.) käyttö. Mainitse mitä mallia on käytetty ja miten. Mainitse myös mikäli et ole käyttänyt. Tämä on tärkeää!
-Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan)
+Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan). Testauksessa expected joukkojen tulojen nopea laskeminen alkujoukoista.
 
 Lähteet, joita olet käyttänyt, vain ne joilla oli merkitystä työn kannalta.
 <br>
