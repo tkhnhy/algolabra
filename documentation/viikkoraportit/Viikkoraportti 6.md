@@ -6,3 +6,5 @@ Tein myös lisää testejä joiden pitäisi kattaa edustavasti itse fft:n toimim
 Seuraavaksi pitäisi tehdä testejä find_frequency luokalle sen verran, että oikean taajuuden löytyminen testataan, 
 sekä mahdollisesti suorituskyky testejä fft algoritmille, joista näkisi että se seuraa O(n log n) aikavaativuutta. Lisäksi dokumentaatiota pitäisi viimeistellä 
 (toteusdokumentaatioon mitä luokat tekevät, testausdokumentaatioon coverage) Ensimmäisestä vertaispalautteesta vielä tyyliin liittyvät palautteet voisi ottaa huomioon
+
+Työtunnit: 6
