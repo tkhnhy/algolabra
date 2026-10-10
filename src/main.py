@@ -4,11 +4,14 @@ from services.find_frequency import FrequencyFinder
 def main():
     interface = Cli()
 
+    try:
+        source = interface.get_source()
+        finder = FrequencyFinder(source)
+        frequency = finder.find_frequency()
+    except:
+        print("Tiedostoa ei voitu lukea")
+        return
 
-    source = interface.get_source()
-    finder = FrequencyFinder(source)
-
-    frequency = finder.find_frequency()
 
     # 0 -original_data, 1 - transformed, 2 - sample_rate, 3 - peak_frequency
     interface.print_frequency(frequency[3])
