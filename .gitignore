@@ -1,4 +1,5 @@
 .vscode/
 .venv/
+.output_audio/*
 __pycache__/
 *.py[cod]

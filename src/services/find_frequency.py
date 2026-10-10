@@ -22,7 +22,7 @@ class FrequencyFinder:
 
         # Lasketaan fft:n tuottamien kompleksilukujen voimakkuudet ja haetaan niistä voimakkaimman taajuus
         magnitude = numpy.abs(transformed)
-        self.peak_index = numpy.argmax(magnitude)
+        self.peak_index = numpy.argmax(magnitude[:len(transformed) // 2])
         self.peak_frequency = self.peak_index * sample_rate / len(transformed)
 
 

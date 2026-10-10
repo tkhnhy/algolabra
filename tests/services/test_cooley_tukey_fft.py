@@ -43,6 +43,26 @@ class TestFourier(unittest.TestCase):
 
         numpy.testing.assert_array_equal(result, expected)
 
+    def test_all_zeroes(self):
+        data = numpy.array([0, 0, 0, 0])
+
+        fourier = Fourier(data)
+
+        expected = numpy.array([0, 0, 0, 0])
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)
+        
+    def test_all_ones(self):
+        data = numpy.array([1, 1, 1, 1])
+
+        fourier = Fourier(data)
+
+        expected = numpy.array([4, 0, 0, 0])
+        result = fourier.do_fft()
+
+        numpy.testing.assert_almost_equal(result, expected)
+
     def test_compare_to_numpy_on_real_data(self):
         data = numpy.load("testdata/sine_440Hz_padded_data.npy")
 
@@ -52,3 +72,13 @@ class TestFourier(unittest.TestCase):
         result = fourier.do_fft()
 
         numpy.testing.assert_almost_equal(result, expected)
+        
+    def test_original_data_retained_after_both_fft_ifft(self):
+        data = numpy.load("testdata/sine_440Hz_padded_data.npy")
+        
+        fourier = Fourier(data)
+        transformed = fourier.do_fft()
+
+        result = do_inverse(transformed)
+        
+        numpy.testing.assert_almost_equal(result, data)
