@@ -20,9 +20,9 @@ Suorituskykytestien myötä käy tosin ilmi, että ohjelma ei täysin seuraa O(n
 
 Käyttöliittymä hyvin karkea (periaattessa ei ollenkaan), ohjelma täytyy suorittaa uudelleen jokaisen tiedoston jälkeen. Näppärämpi käyttöliittymä jollain file explorerilla olisi mukava. 
 
-# Laajojen kielimallien (ChatGPT yms.) käyttö. Mainitse mitä mallia on käytetty ja miten. Mainitse myös mikäli et ole käyttänyt. Tämä on tärkeää!
+# Laajojen kielimallien käyttö.
 
-Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan). Testauksessa expected arvojen nopea laskeminen alkujoukoista. Testauksessa apua miten pytestissä voi sulkea pois joitain testejä.
+Projektin alussa ChatGPT:tä (verkkosivun versiota) ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan). Testauksessa expected arvojen nopea laskeminen alkujoukoista. Testauksessa apua miten pytestissä voi sulkea pois joitain testejä.
 
 # Merkitykselliset lähteet
 
