@@ -14,6 +14,8 @@ Algoritmia on testattu yksinkertaisilla perus syötteillä sekä syötteillä, j
 
 Myös käänteisalgoritmia testataan yksinkertaisella syötteellä sekä testillä, jossa ensin suoritetaan FFT algoritmi ja tämän jälkeen käänteinen FFT algoritmi ja varmistetaan, että saatu tulos vastaa alkuperäistä dataa.
 
+FFT-Algoritmille on myös toteutettu suorituskykytestit, joissa mitataan kuinka se prosessoi satunnaista dataa kasvavilla ko'oilla.
+
 # Miten testit voidaan toistaa?
 Käytä seuraavia komentoja projektin juuressa:
 

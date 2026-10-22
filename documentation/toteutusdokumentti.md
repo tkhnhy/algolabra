@@ -11,11 +11,10 @@ flowchart TD
 
 # Saavutetut aika- ja tilavaativuudet (esim. O-analyysit pseudokoodista)
 
-O(n log n)
+Teorettisesti aikavaativuuden saavutettu aikavaativuus on O(n log n).
+Suorituskykytestien myötä käy tosin ilmi, että ohjelma ei täysin seuraa O(n log n) aika-vaativuutta oikeassa ympäristössä
+![Suorituskyky](./pictures/suorituskyky.PNG)
 
-# Suorituskyky- ja O-analyysivertailu (mikäli sopii työn aiheeseen)
-
-Toteuta: testaa suorituskykyä siten, että seuraa suurinpirtein O(n log n) kun syöte kasvaa
 
 # Työn mahdolliset puutteet ja parannusehdotukset
 
