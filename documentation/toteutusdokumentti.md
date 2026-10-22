@@ -23,7 +23,7 @@ Käyttöliittymä hyvin karkea (periaattessa ei ollenkaan), ohjelma täytyy suor
 
 # Laajojen kielimallien (ChatGPT yms.) käyttö. Mainitse mitä mallia on käytetty ja miten. Mainitse myös mikäli et ole käyttänyt. Tämä on tärkeää!
 
-Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan). Testauksessa expected arvojen nopea laskeminen alkujoukoista.
+Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös soundfile kirjaston read tulostusta (voiko vain heittää sen algoritmiin suoraan). Testauksessa expected arvojen nopea laskeminen alkujoukoista. Testauksessa apua miten pytestissä voi sulkea pois joitain testejä.
 
 # Merkitykselliset lähteet
 
@@ -32,3 +32,5 @@ Projektin alussa ChatGPT:tä ymmärtämään algoritmin syötteitä ja myös sou
 [Cooley-Tukey (Wikipedia)](https://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm)
 <br>
 [Testisyötteiden kannalta hyödyllinen dst.stackexchange kommentti](https://dsp.stackexchange.com/a/634)
+<br>
+[Tehokkaampi padaus](https://stackoverflow.com/questions/64764893/zero-pad-an-array-to-the-next-power-of-2-size)

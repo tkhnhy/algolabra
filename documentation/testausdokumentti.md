@@ -15,9 +15,14 @@ Algoritmia on testattu yksinkertaisilla perus syötteillä sekä syötteillä, j
 Myös käänteisalgoritmia testataan yksinkertaisella syötteellä sekä testillä, jossa ensin suoritetaan FFT algoritmi ja tämän jälkeen käänteinen FFT algoritmi ja varmistetaan, että saatu tulos vastaa alkuperäistä dataa.
 
 # Miten testit voidaan toistaa?
-Käytä seuraavaa komentoa projektin juuressa:
+Käytä seuraavia komentoja projektin juuressa:
 
+Yksikkötestit:
 ```bash
 poetry run pytest
 ```
 
+Suorituskykytestit:
+```bash
+poetry run pytest -o 'addopts=' -m performance
+```
