@@ -27,7 +27,6 @@ class FrequencyFinder:
         # jos syöte koostuu vain reaaliluvuista (kuten audiodatassa)
         self.peak_index = numpy.argmax(magnitude[: len(transformed) // 2])
         self.peak_frequency = self.peak_index * sample_rate / len(transformed)
-        print(sample_rate)
         return original_data, transformed, sample_rate, self.peak_frequency
 
     def invert_and_write(self, data):

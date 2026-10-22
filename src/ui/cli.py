@@ -8,6 +8,9 @@ class Cli:
         audio_source = input()
         if audio_source == "":
             return r"example_audio\sine_440Hz.wav"
+        
+        if audio_source[0] == '"' and audio_source[-1] == '"':
+            audio_source = audio_source[1:-1]
         return audio_source
 
     def print_frequency(self, frequency):
