@@ -1,3 +1,7 @@
+# Voimmakkaimman taajuuden löytäminen - Signaalinkäsittelyohjelma
+
+Ohjelma käyttää Cooley-Tukeyn radix-2 DIT fft-algoritmia muuntamaan äänitiedoston taajusmuotoon, tulostaa aika- ja taajuusmuodon kaaviot pyplotin avulla, printtaa konsoliin voimakkaimman taajuuden arvon, sekä luo uudeen äänitiedoston (rajoitettu 5s pituuteen), joka koostuu voimakkaimmasta taajuudesta.
+
 # Ohjelman yleisrakenne
 
 ```mermaid
