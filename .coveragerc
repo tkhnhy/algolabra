@@ -1,0 +1,3 @@
+[run]
+source = src
+omit = src/**/__init__.py,src/main.py,src/ui/cli.py,src/services/audio_handler.py,src/services/plotter.py
