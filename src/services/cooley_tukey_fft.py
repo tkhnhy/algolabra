@@ -2,6 +2,7 @@ import math
 import cmath
 import numpy
 
+
 class Fourier:
     def __init__(self, audio_data):
         n = len(audio_data)
@@ -12,10 +13,11 @@ class Fourier:
         # Data täytetään nollilla seuraavaan kahden potenssiin algoritmia varten
         next_power_2 = 1 << (n - 1).bit_length()
 
-        self.data = numpy.pad(audio_data,(0, next_power_2 - n))
+        self.data = numpy.pad(audio_data, (0, next_power_2 - n))
 
         # Kommentoimattomana tallentaa testausta varten padatun datan, jotta voi verrata ei padaaviin fft algoritmeihin
         # numpy.save("testdata/audio_data.npy", self.data)
+
     def rad2ct(self, data):
         # Rekursiivinen radix-2 Cooley-Tukey algoritmi. Ottaa syötteenä 2^n kokoisen joukon
         n = len(data)
@@ -33,9 +35,9 @@ class Fourier:
 
         y = numpy.zeros(n, dtype=complex)
 
-        for i in range(n//2):
+        for i in range(n // 2):
             y[i] = y0[i] + (w * y1[i])
-            y[i + (n//2)] = y0[i] - (w * y1[i])
+            y[i + (n // 2)] = y0[i] - (w * y1[i])
 
             w *= wn
 
@@ -46,6 +48,7 @@ class Fourier:
             return numpy.array([])
         else:
             return self.rad2ct(self.data)
+
 
 def inverserad2ct(data):
     # Käänteinen radix-2 Cooley-Tukey algoritmi muuttaakseen data takaisin aika-domainiin.
@@ -64,15 +67,16 @@ def inverserad2ct(data):
 
     y = numpy.zeros(n, dtype=complex)
 
-    for i in range(n//2):
+    for i in range(n // 2):
         y[i] = y0[i] + (w * y1[i])
-        y[i + (n//2)] = y0[i] - (w * y1[i])
+        y[i + (n // 2)] = y0[i] - (w * y1[i])
 
         w *= wn
 
     return y
 
+
 def do_inverse(data):
     # Käänteisen fft:n kaavan mukaisesti joukon osat kerrotaan 1/n (Helpompi tässä kun yrittää edelliseen algoritmiin laittaa)
     n = len(data)
-    return (1/ n) * inverserad2ct(data)
+    return (1 / n) * inverserad2ct(data)

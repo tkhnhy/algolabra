@@ -1,4 +1,5 @@
 import matplotlib
+
 matplotlib.use("QtAgg")
 
 import matplotlib.pyplot as pyplot
@@ -19,6 +20,7 @@ def plot_audio(data, sample_rate):
 
     pyplot.show()
 
+
 def plot_fft(data, sample_rate):
     # Audion taajusmuodon kaavio
     n = len(data)
@@ -28,7 +30,7 @@ def plot_fft(data, sample_rate):
     frequencies = numpy.arange(n // 2) * sample_rate / n
 
     pyplot.figure(figsize=(14, 6))
-    pyplot.plot(frequencies, magnitude[:n // 2])
+    pyplot.plot(frequencies, magnitude[: n // 2])
 
     pyplot.xlabel("Taajuus[Hz]")
     pyplot.ylabel("Voimakkuus")

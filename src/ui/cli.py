@@ -1,9 +1,10 @@
 from services.plotter import plot_audio, plot_fft
 
+
 class Cli:
     def get_source(self):
         print("Kirjoita polku audiotiedostoon jonka haluat analysoida:")
-        #tässä esim. example_audio\sine_440Hz.wav
+        # tässä esim. example_audio\sine_440Hz.wav
         audio_source = input()
         if audio_source == "":
             return r"example_audio\sine_440Hz.wav"

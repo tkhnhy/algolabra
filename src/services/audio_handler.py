@@ -1,6 +1,7 @@
 import soundfile
 import numpy
 
+
 class AudioHandler:
     def __init__(self, audio_source):
         self.audio_source = audio_source
@@ -23,5 +24,8 @@ class AudioHandler:
         return (mono_data, sample_rate)
 
     def writefile(self, data):
-        soundfile.write("output_audio/output.wav",
-        data[:self.original_length], self.sample_rate)
+        # Rajoitetaan tiedoston pituus max 5 sekuntia, sillä pitkä tiedosto samaa taajuutta vähän turha
+        length = min(self.original_length, 5 * self.sample_rate)
+        soundfile.write(
+            "output_audio/output.wav", data[: length], self.sample_rate
+        )

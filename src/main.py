@@ -1,6 +1,7 @@
 from ui.cli import Cli
 from services.find_frequency import FrequencyFinder
 
+
 def main():
     interface = Cli()
 
@@ -12,7 +13,6 @@ def main():
         print("Tiedostoa ei voitu lukea")
         return
 
-
     # 0 -original_data, 1 - transformed, 2 - sample_rate, 3 - peak_frequency
     interface.print_frequency(frequency[3])
 
@@ -20,5 +20,7 @@ def main():
 
     finder.invert_and_write(frequency[1])
     interface.print_written()
+
+
 if __name__ == "__main__":
     main()
