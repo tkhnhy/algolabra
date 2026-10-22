@@ -46,8 +46,7 @@ class Fourier:
     def do_fft(self):
         if len(self.data) == 0:
             return numpy.array([])
-        else:
-            return self.rad2ct(self.data)
+        return self.rad2ct(self.data)
 
 
 def inverserad2ct(data):
@@ -77,6 +76,7 @@ def inverserad2ct(data):
 
 
 def do_inverse(data):
-    # Käänteisen fft:n kaavan mukaisesti joukon osat kerrotaan 1/n (Helpompi tässä kun yrittää edelliseen algoritmiin laittaa)
+    # Käänteisen fft:n kaavan mukaisesti joukon osat kerrotaan 1/n
+    # (Helpompi tässä kun yrittää edelliseen algoritmiin laittaa)
     n = len(data)
     return (1 / n) * inverserad2ct(data)

@@ -1,8 +1,8 @@
 import numpy
 
-from services.audio_handler import AudioHandler
+from .audio_handler import AudioHandler
 
-from services.cooley_tukey_fft import Fourier, do_inverse
+from .cooley_tukey_fft import Fourier, do_inverse
 
 
 class FrequencyFinder:
@@ -20,12 +20,14 @@ class FrequencyFinder:
         fft = Fourier(audio_data)
         transformed = fft.do_fft()
 
-        # Lasketaan fft:n tuottamien kompleksilukujen voimakkuudet ja haetaan niistä voimakkaimman taajuus
+        # Lasketaan fft:n tuottamien kompleksilukujen voimakkuudet
+        # ja haetaan niistä voimakkaimman taajuus
         magnitude = numpy.abs(transformed)
-        # Vain ensimmäinen puoli etsitään. sillä DFT on symmetrinen keskeltä jos syöte koostuu vain reaaliluvuista (kuten audiodatassa)
+        # Vain ensimmäinen puoli etsitään. sillä DFT on symmetrinen keskeltä
+        # jos syöte koostuu vain reaaliluvuista (kuten audiodatassa)
         self.peak_index = numpy.argmax(magnitude[: len(transformed) // 2])
         self.peak_frequency = self.peak_index * sample_rate / len(transformed)
-
+        print(sample_rate)
         return original_data, transformed, sample_rate, self.peak_frequency
 
     def invert_and_write(self, data):

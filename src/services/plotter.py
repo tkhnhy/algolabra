@@ -1,9 +1,8 @@
+import numpy
 import matplotlib
+from matplotlib import pyplot
 
 matplotlib.use("QtAgg")
-
-import matplotlib.pyplot as pyplot
-import numpy
 
 
 def plot_audio(data, sample_rate):
