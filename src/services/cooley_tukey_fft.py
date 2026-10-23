@@ -58,21 +58,21 @@ def inverserad2ct(data):
     even = data[::2]
     odd = data[1::2]
 
-    y0 = inverserad2ct(even)
-    y1 = inverserad2ct(odd)
+    even_output = inverserad2ct(even)
+    odd_output = inverserad2ct(odd)
 
-    wn = cmath.exp(2j * math.pi / n)
-    w = 1
+    twiddle_mult = cmath.exp(2j * math.pi / n)
+    twiddle = 1
 
-    y = numpy.zeros(n, dtype=complex)
+    output = numpy.zeros(n, dtype=complex)
 
     for i in range(n // 2):
-        y[i] = y0[i] + (w * y1[i])
-        y[i + (n // 2)] = y0[i] - (w * y1[i])
+        output[i] = even_output[i] + (twiddle * odd_output[i])
+        output[i + (n // 2)] = even_output[i] - (twiddle * odd_output[i])
 
-        w *= wn
+        twiddle *= twiddle_mult
 
-    return y
+    return output
 
 
 def do_inverse(data):
