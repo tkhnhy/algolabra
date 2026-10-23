@@ -27,21 +27,21 @@ class Fourier:
         even = data[::2]
         odd = data[1::2]
 
-        y0 = self.rad2ct(even)
-        y1 = self.rad2ct(odd)
+        even_output = self.rad2ct(even)
+        odd_output = self.rad2ct(odd)
 
-        wn = cmath.exp(-2j * math.pi / n)
-        w = 1
+        twiddle_mult = cmath.exp(-2j * math.pi / n)
+        twiddle = 1
 
-        y = numpy.zeros(n, dtype=complex)
+        output = numpy.zeros(n, dtype=complex)
 
         for i in range(n // 2):
-            y[i] = y0[i] + (w * y1[i])
-            y[i + (n // 2)] = y0[i] - (w * y1[i])
+            output[i] = even_output[i] + (twiddle * odd_output[i])
+            output[i + (n // 2)] = even_output[i] - (twiddle * odd_output[i])
 
-            w *= wn
+            twiddle *= twiddle_mult
 
-        return y
+        return output
 
     def do_fft(self):
         if len(self.data) == 0:
