@@ -1,6 +1,5 @@
 import math
 import cmath
-import numpy
 
 
 class Fourier:
@@ -8,12 +7,12 @@ class Fourier:
         n = len(audio_data)
 
         if n == 0:
-            self.data = numpy.array([])
+            self.data = []
             return
         # Data täytetään nollilla seuraavaan kahden potenssiin algoritmia varten
         next_power_2 = 1 << (n - 1).bit_length()
 
-        self.data = numpy.pad(audio_data, (0, next_power_2 - n))
+        self.data = list(audio_data) + [0] * (next_power_2 - n)
 
         # Kommentoimattomana tallentaa testausta varten padatun datan, jotta voi verrata ei padaaviin fft algoritmeihin
         # numpy.save("testdata/audio_data.npy", self.data)
@@ -33,7 +32,7 @@ class Fourier:
         twiddle_mult = cmath.exp(-2j * math.pi / n)
         twiddle = 1
 
-        output = numpy.zeros(n, dtype=complex)
+        output = [0j] * n
 
         for i in range(n // 2):
             output[i] = even_output[i] + (twiddle * odd_output[i])
@@ -45,7 +44,7 @@ class Fourier:
 
     def do_fft(self):
         if len(self.data) == 0:
-            return numpy.array([])
+            return []
         return self.rad2ct(self.data)
 
 
@@ -64,7 +63,7 @@ def inverserad2ct(data):
     twiddle_mult = cmath.exp(2j * math.pi / n)
     twiddle = 1
 
-    output = numpy.zeros(n, dtype=complex)
+    output = [0j] * n
 
     for i in range(n // 2):
         output[i] = even_output[i] + (twiddle * odd_output[i])
@@ -79,4 +78,4 @@ def do_inverse(data):
     # Käänteisen fft:n kaavan mukaisesti joukon osat kerrotaan 1/n
     # (Helpompi tässä kun yrittää edelliseen algoritmiin laittaa)
     n = len(data)
-    return (1 / n) * inverserad2ct(data)
+    return [value / n for value in inverserad2ct(data)]

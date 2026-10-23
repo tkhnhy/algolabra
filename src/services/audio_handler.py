@@ -21,11 +21,15 @@ class AudioHandler:
 
         self.original_length = len(mono_data)
 
-        return (mono_data, sample_rate)
+        # Muunnetaan python listaksi jotta numpyä ei tarvitse käyttää tämän ulkopuolella
+        mono_list = mono_data.tolist()
+        return (mono_list, sample_rate)
 
     def writefile(self, data):
+        # Python lista takaisin numpy arrayksi soundfileä varten
+        data_numpy = numpy.array(data, dtype='float32')
         # Rajoitetaan tiedoston pituus max 5 sekuntia, sillä pitkä tiedosto samaa taajuutta vähän turha
         length = min(self.original_length, 5 * self.sample_rate)
         soundfile.write(
-            "output_audio/output.wav", data[: length], self.sample_rate
+            "output_audio/output.wav", data_numpy[: length], self.sample_rate
         )
